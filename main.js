@@ -38,7 +38,7 @@ directionalLight.castShadow = true;
 let ref_gripen = null;
 let t_strobe_light = null;
 
-g_loader.load('public/gripen/gripen_hi_gear_off.glb', function (gltf) {
+g_loader.load('public/gripen/gripen_gear_off.glb', function (gltf) {
     gltf.scene.position.set(0, 0, 0);
     gltf.scene.traverse(function (child) {
         if (child.isMesh) {
