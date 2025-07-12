@@ -1,0 +1,175 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'ACES07_Regular';
+    src: local('ACES07_Regular'),
+        url('public/ACES07_Regular.woff2') format('woff2'),
+        url('public/ACES07_Regular.woff') format('woff'),
+        url('public/ACES07_Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@theme {
+    --font-sans: 'ACES07_Regular', sans-serif;
+}
+
+* {
+    @apply transition-all ease-in-out duration-75;
+}
+
+body {
+    @apply relative flex flex-col min-h-screen;
+    @apply bg-black;
+    @apply font-sans;
+}
+
+canvas#main-3d-scene {
+    @apply fixed top-0 left-0 w-full h-full z-0;
+}
+
+header {
+    @apply fixed bottom-0 w-full z-15;
+    @apply px-8 py-6;
+    @apply bg-black border-t-[1px] border-neutral-500;
+}
+
+header > nav {
+    @apply flex flex-row items-center justify-between;
+}
+
+header > nav > ul:first-of-type {
+    @apply flex flex-row items-center space-x-8;
+}
+
+header > nav > ul:last-of-type {
+    @apply flex flex-row items-center space-x-4;
+}
+
+.header-button {
+    @apply flex flex-row items-center space-x-2;
+    @apply p-2 aspect-square;
+    @apply border-[1px] border-neutral-500 hover:bg-white hover:text-neutral-950;
+}
+
+main {
+    @apply flex flex-col space-y-32 items-stretch z-10;
+    @apply p-16;
+    @apply bg-black/75 backdrop-blur-xl;
+}
+
+section#about {
+    @apply flex flex-col md:flex-row items-center space-x-0 md:space-x-16 space-y-16 md:space-y-0;
+}
+
+section#skills {
+    @apply flex flex-col items-start;
+}
+
+section#skills > ul {
+    @apply flex flex-col md:flex-row flex-wrap items-stretch justify-center space-x-0 md:space-x-8 space-y-8;
+}
+
+section#skills > ul > li {
+    @apply flex flex-col md:min-w-sm;
+    @apply px-4 py-6;
+    @apply border-[1px] border-neutral-500 hover:bg-white hover:text-neutral-950;
+}
+
+section#skills > ul > li:last-child {
+    @apply mr-8 mb-8;
+}
+
+section#skills > ul > li > ul {
+    @apply ml-6;
+    @apply text-left list-disc;
+}
+
+section#projects {
+    @apply flex flex-col items-start;
+    @apply space-y-4;
+}
+
+section#projects > ul {
+    @apply flex flex-col md:flex-row flex-wrap items-stretch justify-center space-x-0 md:space-x-8 space-y-8;
+}
+
+section#projects > ul > li {
+    @apply flex flex-col md:min-w-sm;
+    @apply px-4 py-6;
+    @apply border-[1px] border-neutral-500 hover:bg-white hover:text-neutral-950;
+}
+
+section#projects > ul > li:last-child {
+    @apply mr-8 mb-8;
+}
+
+section#services {
+    @apply flex flex-col items-start;
+}
+
+section#services > ul {
+    @apply flex flex-col md:flex-row flex-wrap items-stretch justify-center space-x-0 md:space-x-8 space-y-8;
+}
+
+section#services > ul > li {
+    @apply flex flex-col md:min-w-sm space-y-4;
+    @apply px-4 py-6;
+    @apply border-[1px] border-neutral-500 hover:bg-white hover:text-neutral-950;
+}
+
+section#services > ul > li:last-child {
+    @apply mr-8 mb-8;
+}
+
+section:last-child {
+    @apply mb-24;
+}
+
+.tags {
+    @apply flex flex-row flex-wrap items-center space-x-2;
+    @apply mb-4;
+}
+
+.tags > span {
+    @apply px-1 py-0.5;
+    @apply text-xs uppercase;
+    @apply bg-neutral-200 text-neutral-950;
+}
+
+.rich-list > li {
+    @apply flex flex-row items-center space-x-2;
+}
+
+.rich-list > li > i{
+    @apply text-2xl;
+}
+
+h1 {
+    @apply text-5xl font-bold my-4;
+}
+
+h2 {
+    @apply text-3xl font-semibold my-4;
+}
+
+h3 {
+    @apply text-2xl font-semibold mb-4;
+}
+
+p {
+    @apply text-lg;
+}
+
+.note {
+    @apply mb-4;
+    @apply text-base text-neutral-500;
+}
+
+.button {
+    @apply inline-flex flex-row items-center space-x-4;
+    @apply px-2 py-1;
+    @apply text-lg;
+    @apply bg-black hover:bg-neutral-50 text-neutral-50 hover:text-neutral-950 border-[1px] border-neutral-500;
+}

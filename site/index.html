@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="color-scheme" content="light dark">
+	<link rel="stylesheet" href="style.css">
+	<link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/fill/style.css"
+    />
+	<title>Ciavi's GitHub Page</title>
+
+	<script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.178.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.178.0/examples/jsm/"
+          }
+        }
+    </script>
+</head>
+
+<body>
+	<canvas id="main-3d-scene"></canvas>
+	<div class="flex-grow min-h-screen"></div>
+	<header id="header">
+		<nav>
+			<ul>
+				<li id="logo">
+					<a href="/" class="text-xl">
+						@Ciavi
+					</a>
+				</li>
+				<li><a href="#about">About</a></li>
+				<li><a href="#skills">Skills</a></li>
+				<li><a href="#projects">Projects</a></li>
+				<li><a href="#contact">Contact me</a></li>
+			</ul>
+			<uL>
+				<li>
+					<a class="header-button" title="Fiverr" href="https://fiverr.com/Ciavi">
+						<i class="ph ph-number-five"></i>
+					</a>
+				</li>
+				<li>
+					<a class="header-button" title="Dribbble" href="https://dribbble.com/Ciavi">
+						<i class="ph ph-dribbble-logo"></i>
+					</a>
+				</li>
+				<li>
+					<a class="header-button" title="GitHub" href="https://github.com/Ciavi">
+						<i class="ph ph-github-logo"></i>
+					</a>
+				</li>
+			</uL>
+		</nav>
+	</header>
+	<main>
+		<section id="about">
+			<div class="flex flex-col items-start">
+				<h1>Hello, it's Ciavi</h1>
+				<p class="note">
+					It's pronounced /ˈtʃa.vi/ 😄
+				</p>
+				<p>
+					I am a passionate mostly-self-taught developer with years of experience in
+					all sorts of languages and technologies. Recently interested in Python and
+					non relational databases.
+				</p>
+				<p>
+					In my free time, I enjoy exploring new technologies, reading books, drawing and taking pictures!
+				</p>
+			</div>
+			<div class="flex flex-col items-end">
+				<img src="https://avatars.githubusercontent.com/u/13613469" class="aspect-square border-[1px] border-neutral-500" />
+				<p class="note mt-4 text-right">
+					No, this is not me, he's one of my cats, his name is <strong>Nero</strong>! 🐈‍⬛
+				</p>
+			</div>
+		</section>
+		<section id="skills">
+			<h1>Experience and Skills</h1>
+			<p class="note">
+				I have cumulated a wide range of skills over the years, and I am always eager to learn more.
+			</p>
+			<ul class="mt-8">
+				<li>
+					<h3 class="flex flex-row items-center space-x-4">
+						<i class="ph ph-globe-hemisphere-east"></i>
+						<span>Frontend Web Development</span>
+					</h3>
+					<div class="tags">
+						<span>HTML</span>
+						<span>CSS</span>
+						<span>JavaScript</span>
+						<span>TypeScript</span>
+					</div>
+					<ul>
+						<li>TailwindCSS</li>
+						<li>Bootstrap</li>
+						<li>jQuery</li>
+						<li>Next.js</li>
+						<li>Nuxt.js</li>
+						<li>Remix.js</li>
+					</ul>
+				</li>
+				<li>
+					<h3 class="flex flex-row items-center space-x-4">
+						<i class="ph ph-globe"></i>
+						<span>Backend Web Development</span>
+					</h3>
+					<div class="tags">
+						<span>Python</span>
+						<span>PHP</span>
+						<span>JavaScript</span>
+						<span>TypeScript</span>
+						<span>C#</span>
+					</div>
+					<ul>
+						<li>ASP.NET</li>
+						<li>Laravel</li>
+						<li>Django</li>
+						<li>Node.js</li>
+					</ul>
+				</li>
+				<li>
+					<h3 class="flex flex-row items-center space-x-4">
+						<i class="ph ph-desktop"></i>
+						<span>Desktop Application Development</span>
+					</h3>
+					<div class="tags">
+						<span>C/C++</span>
+						<span>Vala</span>
+						<span>C#</span>
+						<span>Vb.NET</span>
+						<span>Python</span>
+						<span>Rust</span>
+						<span>Java</span>
+					</div>
+					<ul>
+						<li>GTK 3/4</li>
+						<li>WinForms</li>
+						<li>WPF</li>
+						<li>egui</li>
+						<li>Electron</li>
+						<li>Tauri</li>
+					</ul>
+				</li>
+				<li>
+					<h3 class="flex flex-row items-center space-x-4">
+						<i class="ph ph-robot"></i>
+						<span>Automation</span>
+					</h3>
+					<div class="tags">
+						<span>JavaScript</span>
+						<span>TypeScript</span>
+						<span>Python</span>
+						<span>Rust</span>
+					</div>
+					<ul>
+						<li>Discord Bots (Discord.js, Discord.py, Serenity)</li>
+						<li>API integration</li>
+					</ul>
+				</li>
+				<li>
+					<h3 class="flex flex-row items-center space-x-4">
+						<i class="ph ph-database"></i>
+						<span>Databases</span>
+					</h3>
+					<div class="tags">
+						<span>SQL</span>
+						<span>T-SQL</span>
+						<span>Cypher</span>
+					</div>
+					<ul>
+						<li>MySQL</li>
+						<li>PostgreSQL</li>
+						<li>Microsoft SQL Server</li>
+						<li>MongoDB</li>
+						<li>Neo4j</li>
+					</ul>
+				</li>
+				<li>
+					<h3 class="flex flex-row items-center space-x-4">
+						<i class="ph ph-terminal-window"></i>
+						<span>DevOps & Sysadmin</span>
+					</h3>
+					<div class="tags">
+						<span>bash</span>
+						<span>zsh</span>
+					</div>
+					<ul>
+						<li>SSH</li>
+						<li>Bash scripting</li>
+						<li>Zsh scripting</li>
+						<li>iptables, systemd and other popular Linux tools</li>
+					</ul>
+				</li>
+			</ul>
+		</section>
+		<section id="projects">
+			<h1>Some of my creations</h1>
+			<p class="note">
+				Often cursed or made for fun, but still worth mentioning! 😜
+			</p>
+			<ul class="mt-8">
+				<li>
+					<div class="flex flex-col space-y-4">
+						<div class="tags">
+							<span>Linux</span>
+							<span>Vala</span>
+							<span>GTK</span>
+						</div>
+						<h3>BatteryLand 🔋</h3>
+						<p>
+							A very simple tray applet for Linux that shows battery status. Built with ricers in mind 🍚.
+						</p>
+						<div class="flex flex-row items-center space-x-4">
+							<a class="button" href="https://github.com/Ciavi/batteryland" target="_blank">
+								<i class="ph ph-github-logo"></i>
+								<span>View on GitHub</span>
+							</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="flex flex-col space-y-4">
+						<div class="tags">
+							<span>Linux</span>
+							<span>Vala</span>
+							<span>GTK</span>
+						</div>
+						<h3>Mizu 🌊</h3>
+						<p>
+							A very simple launcher. Built with ricers in mind 🍚.
+						</p>
+						<div class="flex flex-row items-center space-x-4">
+							<a class="button" href="https://github.com/Ciavi/mizu" target="_blank">
+								<i class="ph ph-github-logo"></i>
+								<span>View on GitHub</span>
+							</a>
+						</div>
+					</div>
+				</li>
+				<li>
+					<div class="flex flex-col space-y-4">
+						<div class="tags">
+							<span>Rust</span>
+							<span>egui</span>
+							<span>Discord</span>
+						</div>
+						<h3>dispresence-rs</h3>
+						<p>
+							Change your Discord Rich Presence! Built with Rust 🦀.
+						</p>
+						<div class="flex flex-row items-center space-x-4">
+							<a class="button" href="https://github.com/Ciavi/dispresence-rs" target="_blank">
+								<i class="ph ph-github-logo"></i>
+								<span>View on GitHub</span>
+							</a>
+						</div>
+					</div>
+				</li>
+			</ul>
+		</section>
+		<section id="services">
+			<h1>What I can do for you</h1>
+			<p class="note">
+				All these services are also provided on Fiverr (+20% fee on the prices listed down below) or you can contact me directly for a quote (and possibly a better price).
+				<br>Pricing listed as "starting from" means that the price may vary depending on the complexity of the project.
+			</p>
+			<ul class="mt-8">
+				<li>
+					<div class="flex flex-row items-center justify-between">
+						<i class="ph ph-discord-logo text-4xl"></i>
+						<span class="text-xl">starting from €50<span class="text-sm text-neutral-500">/project</span></span>
+					</div>
+					<div>
+						<h3>Discord bots</h3>
+						<ul class="rich-list">
+							<li><i class="ph ph-command"></i><span>Slash commands and interactions</span></li>
+							<li><i class="ph ph-database"></i><span>Database integration</span></li>
+							<li><i class="ph ph-binary"></i><span>API integration</span></li>
+							<li><i class="ph ph-eyes"></i><span>Scraping</span></li>
+						</ul>
+					</div>
+					<div class="flex flex-row items-center justify-end mt-auto">
+						<a class="button" href="#contact">Get started</a>
+					</div>
+				</li>
+				<li>
+					<div class="flex flex-row items-center justify-between">
+						<i class="ph ph-globe-hemisphere-west text-4xl"></i>
+						<span class="text-xl">starting from €100<span class="text-sm text-neutral-500">/project</span></span>
+					</div>
+					<div>
+						<h3>Web page/app</h3>
+						<ul class="rich-list">
+							<li><i class="ph ph-gear"></i><span>Modern standards and frameworks</span></li>
+							<li><i class="ph ph-database"></i><span>Database integration</span></li>
+							<li><i class="ph ph-translate"></i><span>Multi-lingual support</span></li>
+							<li><i class="ph ph-contactless-payment"></i><span>Payment support</span></li>
+						</ul>
+					</div>
+					<div class="flex flex-row items-center justify-end mt-auto">
+						<a class="button" href="#contact">Get started</a>
+					</div>
+				</li>
+				<li>
+					<div class="flex flex-row items-center justify-between">
+						<i class="ph ph-globe text-4xl"></i>
+						<span class="text-xl">starting from €75<span class="text-sm text-neutral-500">/project</span></span>
+					</div>
+					<div>
+						<h3>API</h3>
+						<ul class="rich-list">
+							<li><i class="ph ph-gear"></i><span>Modern standards</span></li>
+							<li><i class="ph ph-database"></i><span>Database integration</span></li>
+							<li><i class="ph ph-fingerprint-simple"></i><span>Authentication and Authorisation</span></li>
+						</ul>
+					</div>
+					<div class="flex flex-row items-center justify-end mt-auto">
+						<a class="button" href="#contact">Get started</a>
+					</div>
+				</li>
+				<li>
+					<div class="flex flex-row items-center justify-between">
+						<i class="ph ph-read-cv-logo text-4xl"></i>
+						<span class="text-xl">starting from €35<span class="text-sm text-neutral-500">/project</span></span>
+					</div>
+					<div>
+						<h3>Branding</h3>
+						<ul class="rich-list">
+							<li><i class="ph ph-eyes"></i><span>Be Recognisable</span></li>
+							<li><i class="ph ph-squares-four"></i><span>Logo (with variants)</span></li>
+							<li><i class="ph ph-flag-banner-fold"></i><span>Banners and more material</span></li>
+						</ul>
+					</div>
+					<div class="flex flex-row items-center justify-end mt-auto">
+						<a class="button" href="#contact">Get started</a>
+					</div>
+				</li>
+			</ul>
+		</section>
+		<section id="contact">
+			<h1>Contact me</h1>
+			<p>
+				For any inquiries, questions or just to say hi, feel free to reach out via email.
+				Fiverr is also available for quick and easy project requests.
+			</p>
+			<div class="flex flex-row items-center space-x-4 mt-8">
+				<a class="button" href="mailto:ciavi@lichtzeit.it" target="_blank">
+					<i class="ph ph-mailbox"></i>
+					<span>E-Mail</span>
+				</a>
+
+				<a class="button" href="https://fiverr.com/Ciavi" target="_blank">
+					<i class="ph ph-number-five"></i>
+					<span>Fiverr</span>
+				</a>
+			</div>
+		</section>
+	</main>
+	<footer>
+
+	</footer>
+	<script type="module" src="/main.js"></script>
+</body>
+
+</html>
