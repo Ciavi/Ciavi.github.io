@@ -1,4 +1,5 @@
 import * as THREE from 'three';
+import { WebGL } from 'three/addons/capabilities/WebGL.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
 import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
@@ -229,31 +230,34 @@ function animate() {
     }
 
 
-    if (ref_gripen) {
-        const angle = Math.sin(elapsed * 0.25) * THREE.MathUtils.degToRad(35);
-        const offset = Math.cos(elapsed * 0.1) * 0.05;
+    if (WebGL.isWebGL2Available()) {
+        if (ref_gripen) {
+            const angle = Math.sin(elapsed * 0.25) * THREE.MathUtils.degToRad(35);
+            const offset = Math.cos(elapsed * 0.1) * 0.05;
 
-        ref_gripen.rotation.x = angle;
-        ref_gripen.position.y += offset;
-    }
+            ref_gripen.rotation.x = angle;
+            ref_gripen.position.y += offset;
+        }
 
-    for (let cloud of clouds) {
-        cloud.position.x -= 3; // drift speed
+        for (let cloud of clouds) {
+            cloud.position.x -= 3; // drift speed
 
-        // Optionally, loop them back when they get too far
-        if (cloud.position.x < -50) {
-            cloud.position.x += 800;
+            // Optionally, loop them back when they get too far
+            if (cloud.position.x < -50) {
+                cloud.position.x += 800;
+            }
+        }
+
+        for (let cloud of backgroundClouds) {
+            cloud.position.x -= 1; // drift speed
+
+            // Optionally, loop them back when they get too far
+            if (cloud.position.x < -250) {
+                cloud.position.x += 1500;
+            }
         }
     }
-
-    for (let cloud of backgroundClouds) {
-        cloud.position.x -= 1; // drift speed
-
-        // Optionally, loop them back when they get too far
-        if (cloud.position.x < -250) {
-            cloud.position.x += 1500;
-        }
-    }
+    
 
     //controls.update();
     composer.render();
