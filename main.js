@@ -212,25 +212,25 @@ function resizeRendererToDisplaySize(renderer) {
 
 const clock = new THREE.Clock();
 
-function animate() {
-    if (resizeRendererToDisplaySize(renderer)) {
-        const canvas = renderer.domElement;
-        camera.aspect = canvas.clientWidth / canvas.clientHeight;
-        camera.updateProjectionMatrix();
+if (WebGL.isWebGL2Available()) {
+    function animate() {
+        if (resizeRendererToDisplaySize(renderer)) {
+            const canvas = renderer.domElement;
+            camera.aspect = canvas.clientWidth / canvas.clientHeight;
+            camera.updateProjectionMatrix();
 
-        composer.setSize(canvas.width, canvas.height);
-    }
+            composer.setSize(canvas.width, canvas.height);
+        }
 
-    const elapsed = clock.getElapsedTime();
-    const cycle = 3.0;
-    const t = elapsed % cycle;
+        const elapsed = clock.getElapsedTime();
+        const cycle = 3.0;
+        const t = elapsed % cycle;
 
-    if (t_strobe_light) {
-        t_strobe_light.intensity = t < 0.1 ? 5000 : 0;
-    }
+        if (t_strobe_light) {
+            t_strobe_light.intensity = t < 0.1 ? 5000 : 0;
+        }
 
 
-    if (WebGL.isWebGL2Available()) {
         if (ref_gripen) {
             const angle = Math.sin(elapsed * 0.25) * THREE.MathUtils.degToRad(35);
             const offset = Math.cos(elapsed * 0.1) * 0.05;
@@ -256,11 +256,10 @@ function animate() {
                 cloud.position.x += 1500;
             }
         }
+
+        //controls.update();
+        composer.render();
     }
-    
 
-    //controls.update();
-    composer.render();
+    renderer.setAnimationLoop(animate);
 }
-
-renderer.setAnimationLoop(animate);
