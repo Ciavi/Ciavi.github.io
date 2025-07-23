@@ -34,7 +34,7 @@ renderer.autoClear = true;
 renderer.gammaFactor = 2.2;
 renderer.outputEncoding = THREE.sRGBEncoding;
 
-if (mobileAndTabletCheck()) {
+if (window.mobileAndTabletCheck()) {
     renderer.setPixelRatio(window.devicePixelRatio > 2 ? 2 : window.devicePixelRatio);
 }
 
