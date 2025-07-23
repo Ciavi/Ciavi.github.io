@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import WebGL from 'three/addons/capabilities/WebGL.js';
 import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
-import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
+// import { RGBELoader } from 'three/addons/loaders/RGBELoader.js';
 import { EffectComposer } from 'three/addons/postprocessing/EffectComposer.js';
 import { RenderPass } from 'three/addons/postprocessing/RenderPass.js';
 import { FilmPass } from 'three/addons/postprocessing/FilmPass.js';
@@ -18,11 +18,15 @@ const renderer = new THREE.WebGLRenderer({
     canvas,
     alpha: true,
     premultipliedAlpha: false,
+    powerPreference: 'high-performance'
 });
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.physicallyCorrectLights = true;
 renderer.toneMapping = THREE.ACESFilmicToneMapping;
 renderer.toneMappingExposure = 1.0;
 renderer.autoClear = true;
+renderer.gammaFactor = 2.2;
+renderer.outputEncoding = THREE.sRGBEncoding;
 
 const g_loader = new GLTFLoader();
 
@@ -30,9 +34,16 @@ const skyColor = 0x070B34;
 const groundColor = 0x1e4e52;
 const intensity = 1;
 const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
+
+light.skyColor.convertSRGBToLinear();
+light.groundColor.convertSRGBToLinear();
+
 scene.add(light);
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
+
+directionalLight.color.convertSRGBToLinear();
+
 directionalLight.position.set(100, 50, 0);
 directionalLight.castShadow = true;
 
@@ -59,51 +70,84 @@ g_loader.load('public/gripen/gripen_gear_off.glb', function (gltf) {
 
     // Strobe lights
     t_strobe_light = new THREE.PointLight(0xccccff, 5000);
+
+    t_strobe_light.color.convertSRGBToLinear();
+
     t_strobe_light.position.set(-37.500, 21.489, 0);
     ref_gripen.add(t_strobe_light);
 
     // Formation lights
     const s_light_f = new THREE.RectAreaLight(0xccff88, 200, 2.5, 0.5);
+
+    s_light_f.color.convertSRGBToLinear();
+
     s_light_f.position.set(71.450, -3.279, 4.804);
     ref_gripen.add(s_light_f);
 
     const s_light_ft = new THREE.RectAreaLight(0xccff88, 200, 2.5, 0.5);
+
+    s_light_ft.color.convertSRGBToLinear();
+
     s_light_ft.position.set(39.833, -1.727, 9.820);
     ref_gripen.add(s_light_ft);
 
     const s_light_fb = new THREE.RectAreaLight(0xccff88, 200, 2.5, 0.5);
+
+    s_light_fb.color.convertSRGBToLinear();
+
     s_light_fb.position.set(36.994, -3.672, 9.723);
     ref_gripen.add(s_light_fb);
 
     const t_light_ft = new THREE.RectAreaLight(0xccff88, 200, 2.5, 0.5);
+
+    t_light_ft.color.convertSRGBToLinear();
+
     t_light_ft.position.set(-12.285, 7.415, 1.844);
     ref_gripen.add(t_light_ft);
 
     const t_light_fb = new THREE.RectAreaLight(0xccff88, 200, 2.5, 0.5);
+
+    t_light_fb.color.convertSRGBToLinear();
+
     t_light_fb.position.set(-9.472, 6.592, 2.127);
     ref_gripen.add(t_light_fb);
 
     const s_light_b = new THREE.RectAreaLight(0xccff88, 200, 2.5, 0.5);
+
+    s_light_b.color.convertSRGBToLinear();
+
     s_light_b.position.set(71.450, -3.279, -4.700);
     s_light_b.rotation.x = THREE.MathUtils.degToRad(180);
     ref_gripen.add(s_light_b);
 
     const s_light_bt = new THREE.RectAreaLight(0xccff88, 200, 2.5, 0.5);
+
+    s_light_bt.color.convertSRGBToLinear();
+
     s_light_bt.position.set(39.833, -1.727, -9.820);
     s_light_bt.rotation.x = THREE.MathUtils.degToRad(180);
     ref_gripen.add(s_light_bt);
 
     const s_light_bb = new THREE.RectAreaLight(0xccff88, 200, 2.5, 0.5);
+
+    s_light_bb.color.convertSRGBToLinear();
+
     s_light_bb.position.set(36.994, -3.672, -9.723);
     s_light_bb.rotation.x = THREE.MathUtils.degToRad(180);
     ref_gripen.add(s_light_bb);
 
     const t_light_bt = new THREE.RectAreaLight(0xccff88, 200, 2.5, 0.5);
+
+    t_light_bt.color.convertSRGBToLinear();
+
     t_light_bt.position.set(-12.285, 7.415, -1.844);
     t_light_bt.rotation.x = THREE.MathUtils.degToRad(180);
     ref_gripen.add(t_light_bt);
 
     const t_light_bb = new THREE.RectAreaLight(0xccff88, 200, 2.5, 0.5);
+
+    t_light_bb.color.convertSRGBToLinear();
+
     t_light_bb.position.set(-9.472, 6.592, -2.127);
     t_light_bb.rotation.x = THREE.MathUtils.degToRad(180);
     ref_gripen.add(t_light_bb);
@@ -129,6 +173,9 @@ b_loader.load('public/back.png', function (texture) {
 });
 
 scene.fog = new THREE.FogExp2(0x000000, 0.01);
+
+scene.fog.color.convertSRGBToLinear();
+
 renderer.setClearColor(scene.fog.color);
 
 const backgroundClouds = [];
@@ -138,11 +185,13 @@ const t_loader = new THREE.TextureLoader();
 t_loader.load('public/cloud_final.png', function (texture) {
     const material = new THREE.SpriteMaterial({
         map: texture,
-        transparent: true,
-        opacity: 0.5,
+        transparent: false,
+        //opacity: 0.5,
         depthWrite: true,
         color: 0xccaa99,
     });
+
+    material.color.convertSRGBToLinear();
 
     function gaussianRandom(mean=0, stdev=1) {
         const u = 1 - Math.random(); // Converting [0,1) to (0,1]
