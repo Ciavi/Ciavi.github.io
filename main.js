@@ -35,9 +35,6 @@ const groundColor = 0x1e4e52;
 const intensity = 1;
 const light = new THREE.HemisphereLight(skyColor, groundColor, intensity);
 
-light.skyColor.convertSRGBToLinear();
-light.groundColor.convertSRGBToLinear();
-
 scene.add(light);
 
 const directionalLight = new THREE.DirectionalLight(0xffffff, 5);
