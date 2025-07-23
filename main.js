@@ -182,8 +182,8 @@ const t_loader = new THREE.TextureLoader();
 t_loader.load('public/cloud_final.png', function (texture) {
     const material = new THREE.SpriteMaterial({
         map: texture,
-        transparent: false,
-        //opacity: 0.5,
+        transparent: true,
+        opacity: 0.5,
         depthWrite: true,
         color: 0xccaa99,
     });
