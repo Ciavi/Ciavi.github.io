@@ -35,7 +35,7 @@ renderer.gammaFactor = 2.2;
 renderer.outputEncoding = THREE.sRGBEncoding;
 
 if (window.mobileAndTabletCheck()) {
-    renderer.setPixelRatio(window.devicePixelRatio > 2 ? 2 : window.devicePixelRatio);
+    renderer.setPixelRatio(window.devicePixelRatio > 1 ? 1 : window.devicePixelRatio);
 }
 
 const g_loader = new GLTFLoader();
